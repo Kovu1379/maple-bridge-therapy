@@ -16,5 +16,5 @@ export default function ContactOptions(){
  <DialogDescription style={{fontSize:'1rem',color:'#36584d'}}>Your selected topic will be included when you open your email app. You can review your message before sending.</DialogDescription>
  <a className="button" href={'mailto:'+email+'?subject='+encodeURIComponent('Maple Bridge Therapy — '+service)+'&body='+encodeURIComponent(message)}>Open email app <ArrowUpRight size={18}/></a>
  <p style={{fontSize:'1rem',overflowWrap:'anywhere'}}>Or email us at <a href={'mailto:'+email}>{email}</a>.</p>
- </DialogContent></Dialog></section></div></>;
+ </DialogContent></Dialog><a className="button" style={{marginTop:"1rem",marginLeft:"0.75rem"}} href={"https://wa.me/201224185264?text="+encodeURIComponent(message)} target="_blank" rel="noopener noreferrer">Message on WhatsApp <ArrowUpRight size={18}/></a></section></div></>;
 }
