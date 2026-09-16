@@ -2,10 +2,10 @@
 import {useEffect,useState} from 'react';
 import {ArrowUpRight,Check,Mail} from 'lucide-react';
 import {Dialog,DialogTrigger,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
-const options=['General enquiry','Comprehensive Participation Assessment','Clarity Consultation','Focused Implementation Packages','Participation Review'];
+const options=['General enquiry','Occupational Therapy Assessment','Clarity Consultation','Focused Implementation Packages','Participation Review','Shop enquiry'];
 export default function ContactOptions(){
  const[service,setService]=useState(options[0]);
- useEffect(()=>{const value=new URLSearchParams(window.location.search).get('service');if(value&&options.includes(value))setService(value)},[]);
+ useEffect(()=>{let value=new URLSearchParams(window.location.search).get('service');if(value==='Comprehensive Participation Assessment')value='Occupational Therapy Assessment';if(value&&options.includes(value))setService(value)},[]);
  const message=service==='General enquiry'?'Hello Maple Bridge Therapy, I’d like to discuss arranging a consultation.':`Hello Maple Bridge Therapy, I’d like to ask about ${service.toLowerCase()}.`;
  const email='maplebridge6@gmail.com';
  return <><fieldset className="enquiry-options"><legend>What would you like to talk about?</legend><p>Choose a topic to include in your message.</p><div>{options.map(o=><label key={o} className={service===o?'selected':''}><input type="radio" name="enquiry" value={o} checked={service===o} onChange={()=>setService(o)}/>{service===o&&<Check size={14}/>}<span>{o}</span></label>)}</div></fieldset>
